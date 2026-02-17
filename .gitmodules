@@ -3,7 +3,7 @@
 	url = git@github.com:Skippia/algorithms-playground.git
 [submodule "asynchronous-nodejs-playground"]
 	path = asynchronous-nodejs-playground
-	url = git@github.com:Skippia/Asynchronous_travel_around_Node.js.git
+	url = git@github.com:Skippia/asynchronous-nodejs-playground.git
 [submodule "automapper-demo"]
 	path = automapper-demo
 	url = git@github.com:Skippia/automapper-demo.git
