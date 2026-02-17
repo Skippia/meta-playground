@@ -1,73 +1,73 @@
 # meta-playground
 
-Aggregated playground: all my learning repos as git submodules — algorithms, Node.js, TypeScript, DevOps, databases, patterns & more.
+Агрегированный playground: все мои учебные репозитории как git-подмодули — алгоритмы, Node.js, TypeScript, DevOps, базы данных, паттерны и многое другое.
 
-> [Версия на русском](./README.ru.md)
+> [English version](./README.en.md)
 
-## Repos
+## Репозитории
 
-### Core Node.js
+### Ядро Node.js
 
-| Repo | Language | Description |
-|------|----------|-------------|
-| [nodejs-playground](./nodejs-playground) | JavaScript | Node.js core modules — path, os, process, url, events, stream (pipe + backpressure), fs (custom promisify), cluster (multi-core forking), HTTP server |
-| [streams-playground](./streams-playground) | TypeScript | 18 modules: all stream types, pipe vs pipeline, backpressure, async generators, AbortController, Web Streams API, CSV-to-NDJSON ETL, TCP chat, SQLite pagination, child_process/worker_threads parallelism, streaming internet radio with SoX |
-| [asynchronous-nodejs-playground](./asynchronous-nodejs-playground) | TypeScript | Event loop internals, libuv threadpool, promise ordering, worker threads/workerpools, clustering + PM2, actors model |
-| [parallel-programming-playground](./parallel-programming-playground) | TypeScript | Mutex (4 impls + deadlock/livelock), Semaphore (binary/counting + atomics), Atomics benchmarks, WorkerPool, async primitives (async-mutex, async-semaphore, barrier, bounded-channel, rate-limiter, rw-lock), distributed Redis lock, lock-free CAS counter |
-| [V8-sandboxes-playground](./V8-sandboxes-playground) | JavaScript | Isolated sandboxes via Node.js `vm` module — safeRequire (CJS) / safeImport (ESM), whitelisted module loading, proxied globals, sandboxed fs access |
+| Репозиторий | Язык | Описание | Варианты использования |
+|-------------|------|----------|------------------------|
+| [nodejs-playground](./nodejs-playground) | JavaScript | • Ключевые модули Node.js — path, os, process, url, events, stream (pipe + backpressure), fs (кастомный promisify)<br>• cluster (форкинг на несколько ядер)<br>• HTTP-сервер | CLI-утилиты, процесс-менеджмент, HTTP-серверы без фреймворков |
+| [streams-playground](./streams-playground) | TypeScript | • 19 модулей: все типы стримов, pipe vs pipeline, backpressure, async-генераторы, AbortController, Web Streams API<br>• ETL CSV-to-NDJSON, TCP-чат, пагинация SQLite<br>• Параллелизм через child_process/worker_threads<br>• Стриминговое интернет-радио с SoX<br>• Observer/Pub-Sub EventEmitter | ETL-пайплайны, обработка больших файлов, медиа-стриминг |
+| [asynchronous-nodejs-playground](./asynchronous-nodejs-playground) | TypeScript | • Внутреннее устройство event loop, libuv threadpool, порядок выполнения промисов<br>• Worker threads/workerpools, кластеризация + PM2, модель акторов<br>• Sequential vs concurrent vs parallel выполнение<br>• Async-отладчик, baseline-бенчмарки производительности | Оптимизация throughput, диагностика блокировки event loop, масштабирование PM2/cluster |
+| [parallel-programming-playground](./parallel-programming-playground) | TypeScript | • Mutex (4 реализации + deadlock/livelock), Semaphore (бинарный/счётный + atomics), бенчмарки Atomics<br>• WorkerPool, async-примитивы (async-mutex, async-semaphore, barrier, bounded-channel, rate-limiter, rw-lock)<br>• Распределённая блокировка Redis, lock-free CAS-счётчик | CPU-интенсивные задачи (изображения/видео), rate limiting, пулы соединений, распределённые блокировки |
+| [V8-sandboxes-playground](./V8-sandboxes-playground) | JavaScript | • Изолированные песочницы через модуль `vm` Node.js<br>• Двойная реализация: safeRequire (CJS) и safeImport (ESM)<br>• Загрузка модулей по белому списку, проксированные глобальные объекты, песочница для доступа к fs | Плагин-системы, исполнение пользовательских скриптов, мультитенантная изоляция |
 
-### TypeScript & FP
+### TypeScript и ФП
 
-| Repo | Language | Description |
-|------|----------|-------------|
-| [typescript-playground](./typescript-playground) | TypeScript | 42 type-level challenges (all utility types from scratch), type-level arithmetic, UnionToIntersection, recursive types, template literals, covariance/contravariance, distributive conditionals, type narrowing edge cases |
-| [fp-playground](./fp-playground) | TypeScript | fp-ts/ramda/monocle-ts — HOF, currying, composition, tagless final, type-driven dev; category theory (functors, applicatives, monads, Kleisli); all monadic types (Option, Either, Task, Reader, State, Writer); algebraic structures; optics; Game of Life |
-| [legacy-decorators-playground](./legacy-decorators-playground) | TypeScript | Legacy `experimentalDecorators` + reflect-metadata: method/class decorators, factories, execution order, double-wrapping, design:type/paramtypes/returntype emission |
+| Репозиторий | Язык | Описание | Варианты использования |
+|-------------|------|----------|------------------------|
+| [typescript-playground](./typescript-playground) | TypeScript | • 42 задачи на уровне типов (все utility-типы с нуля), арифметика на уровне типов, UnionToIntersection<br>• Рекурсивные типы, template literals, ковариантность/контравариантность<br>• Дистрибутивные условные типы, граничные случаи сужения типов<br>• misc-types (DeepReadonly, Invert, NoInfer) + 7 файлов с edge-case поведением | Типобезопасные библиотеки, проектирование SDK, сложные generic-API |
+| [fp-playground](./fp-playground) | TypeScript | • fp-ts/ramda/monocle-ts — HOF, каррирование, композиция, tagless final, type-driven разработка<br>• Теория категорий (функторы, аппликативы, монады, Kleisli)<br>• Все монадические типы (Option, Either, Task, Reader, State, Writer)<br>• Алгебраические структуры, оптики, Game of Life | Пайплайны обработки ошибок, трансформации данных, DI через Reader, управление side-effects |
+| [legacy-decorators-playground](./legacy-decorators-playground) | TypeScript | • Legacy `experimentalDecorators` + reflect-metadata<br>• Декораторы методов/классов, фабрики, порядок выполнения, двойная обёртка<br>• Эмиссия design:type/paramtypes/returntype | NestJS/Angular DI, ORM-декораторы, валидация, AOP |
 
-### Databases & Messaging
+### Базы данных и очереди сообщений
 
-| Repo | Language | Description |
-|------|----------|-------------|
-| [postgres-playground](./postgres-playground) | TypeScript / SQL | Ranking, CTEs, recursive CTEs, functions/procedures, window functions, JSONB, materialized views, triggers, pg-cron, full-text/fuzzy search, domain types; indexes (exclusion, composite, partial); replication, partitioning, PgBouncer, backup/restore, SSL, migrations; advisory locks, isolation levels |
-| [redis-playground](./redis-playground) | TypeScript | 3-project monorepo: NestJS + ioredis (session auth, Redlock, WATCH/transaction, optimistic locking, ELK); SvelteKit auction (RediSearch, HyperLogLog, Lua scripts, Keygrip cookies); Vue 3 search UI with MSW |
-| [rabbitmq-playground](./rabbitmq-playground) | TypeScript | Topic exchange, publisher confirms, RPC, alternate/dead letter exchanges, consistent hash, 3 retry strategies (DLX+TTL, exponential backoff, delayed_message_exchange plugin), NestJS microservices + MongoDB, 3-node cluster with HAProxy + Shovels, clinic.js benchmarks |
+| Репозиторий | Язык | Описание | Варианты использования |
+|-------------|------|----------|------------------------|
+| [postgres-playground](./postgres-playground) | TypeScript / SQL | • Ранжирование, CTE, рекурсивные CTE, функции/процедуры, оконные функции, JSONB<br>• Материализованные представления, триггеры, pg-cron, полнотекстовый/нечёткий поиск, доменные типы<br>• Индексы (исключающие, составные, частичные)<br>• Репликация, партиционирование, PgBouncer, бэкап/восстановление, SSL, миграции<br>• Рекомендательные блокировки, уровни изоляции<br>• Коррелированные подзапросы, LISTEN/NOTIFY pub-sub, pg_ivm инкрементальные материализованные представления | Сложная аналитика, полнотекстовый поиск, шардинг/репликация, планировщик задач |
+| [redis-playground](./redis-playground) | TypeScript | • Монорепо из 3 проектов: NestJS + ioredis (сессионная авторизация, Redlock, WATCH/транзакции, оптимистичная блокировка, ELK)<br>• SvelteKit аукцион (RediSearch, HyperLogLog, Lua-скрипты, Keygrip cookies)<br>• Vue 3 поисковый UI с MSW | Сессии, распределённые блокировки, real-time поиск, кэширование, аукционы |
+| [rabbitmq-playground](./rabbitmq-playground) | TypeScript | • Topic exchange, publisher confirms, RPC, alternate/dead letter exchanges, consistent hash<br>• 3 стратегии повторов (DLX+TTL, экспоненциальный backoff, плагин delayed_message_exchange)<br>• 3 стратегии publisher confirms (синхронная/пакетная/асинхронная), обработка poison messages<br>• NestJS микросервисы + MongoDB, кластер из 3 нод с HAProxy + Shovels, бенчмарки clinic.js | Микросервисная коммуникация, retry/DLQ стратегии, event-driven архитектура |
 
-### Patterns & Architecture
+### Паттерны и архитектура
 
-| Repo | Language | Description |
-|------|----------|-------------|
-| [patterns-playground](./patterns-playground) | TypeScript | GoF patterns (8 behavioral, 1 creational, 3 structural), DDD Specification, plus decorators, memoization, mixins, object pool, thenable, Revealing Constructor |
-| [event-sourcing-playground](./event-sourcing-playground) | TypeScript | 5 progressive examples (maritime shipping domain): basic apply/replay, event reversal (Memento), external caching (Decorator/QueryLog), retroactive replacement/rejection with rewind, side-effect buffering with differential cancel/re-notify; bonus: event-based CRUD cart with MongoDB + Express |
-| [vertical-slice-architecture-playground](./vertical-slice-architecture-playground) | TypeScript | Two NestJS + CQRS implementations: basic (Drizzle + SQLite) and production (multi-app monorepo, PostgreSQL, RabbitMQ, Pino, Joi, Docker Compose, madge circular dependency detection) |
+| Репозиторий | Язык | Описание | Варианты использования |
+|-------------|------|----------|------------------------|
+| [patterns-playground](./patterns-playground) | TypeScript | • GoF-паттерны (8 поведенческих, 1 порождающий, 3 структурных)<br>• DDD Specification, паттерн Factorify<br>• Декораторы, мемоизация, миксины, пул объектов, thenable, Revealing Constructor | Чистая архитектура, плагин-системы, стейт-машины |
+| [event-sourcing-playground](./event-sourcing-playground) | TypeScript | • 5 последовательных примеров (домен морских перевозок): базовый apply/replay, реверсия событий (Memento), внешнее кэширование (Decorator/QueryLog)<br>• Ретроактивная замена/отклонение с перемоткой, буферизация сайд-эффектов с дифференциальной отменой/переотправкой<br>• Бонус: event-based CRUD корзины с MongoDB + Express | Аудит-трейлы, undo/redo, темпоральные запросы, финансы/логистика |
+| [vertical-slice-architecture-playground](./vertical-slice-architecture-playground) | TypeScript | • Две реализации NestJS + CQRS: базовая (Drizzle + SQLite) и продакшн (монорепо из нескольких приложений, PostgreSQL, RabbitMQ)<br>• Winston логгер + trace ID, Joi валидация, Docker Compose<br>• Обнаружение циклических зависимостей через madge<br>• 30 E2E-тестов на каждую версию | Feature-based организация кода, CQRS в NestJS, монорепо |
 
-### DevOps & Infra
+### DevOps и инфраструктура
 
-| Repo | Language | Description |
-|------|----------|-------------|
-| [devops-playground](./devops-playground) | YAML / Dockerfile | Docker Compose multi-stack (NestJS+RabbitMQ, Laravel+PHP-FPM, Vue/React+Express+MySQL/MongoDB), K8s manifests (local + AWS EKS, EFS, Secrets, ConfigMaps), GitHub Actions pipelines, Nginx configs |
-| [SSR-cache-demo](./SSR-cache-demo) | TypeScript | 3 Nuxt 3 SSR caching strategies: routeRules SWR (in-memory TTL), ETag + stale-while-revalidate (browser-side, MD5, 304), server middleware + external storage (TTL-based render interception) |
+| Репозиторий | Язык | Описание | Варианты использования |
+|-------------|------|----------|------------------------|
+| [devops-playground](./devops-playground) | YAML / Dockerfile | • Docker Compose мультистек (NestJS+RabbitMQ, Laravel+PHP-FPM, Vue/React+Express+MySQL/MongoDB)<br>• Swiggy микросервисы (Nginx + PostgreSQL), pgAdmin<br>• K8s-манифесты (локальные + AWS EKS, EFS, Secrets, ConfigMaps)<br>• Пайплайны GitHub Actions, конфиги Nginx | CI/CD пайплайны, контейнеризация, K8s-оркестрация, reverse proxy |
+| [SSR-cache-demo](./SSR-cache-demo) | TypeScript | • 3 стратегии кэширования SSR в Nuxt 3: routeRules SWR (in-memory TTL), ETag + stale-while-revalidate (браузерное, MD5, 304)<br>• Серверная middleware + внешнее хранилище (перехват рендера на основе TTL) | Оптимизация SSR-производительности, CDN-кэширование, SEO |
 
-### Protocols & Communication
+### Протоколы и коммуникация
 
-| Repo | Language | Description |
-|------|----------|-------------|
-| [gRPC-playground](./gRPC-playground) | TypeScript | Eliza service from .proto (buf + protoc-gen-ts), server/client interceptors, health checks, server reflection, error handling, Swagger/OpenAPI generation |
-| [realtime-playground](./realtime-playground) | JavaScript / TypeScript | 7 mini-chat implementations: short polling (RAF), long polling (EventEmitter), SSE, HTTP/2 streams, basic WebSocket, WebSocket + Redis pub/sub + HAProxy scaling, collaborative spreadsheet (Vue 3 + Pinia) |
+| Репозиторий | Язык | Описание | Варианты использования |
+|-------------|------|----------|------------------------|
+| [gRPC-playground](./gRPC-playground) | TypeScript | • Eliza-сервис из .proto (buf + protoc-gen-ts)<br>• Серверные/клиентские интерцепторы, health checks, серверная рефлексия, обработка ошибок<br>• Типы стриминга (server/bidi), политики retry/deadline | Микросервисные API, high-performance RPC, стриминг данных |
+| [realtime-playground](./realtime-playground) | JavaScript / TypeScript | • 7 мини-чатов: short polling (RAF), long polling (EventEmitter), SSE, HTTP/2 streams<br>• Базовый WebSocket, WebSocket + Redis pub/sub + масштабирование через HAProxy<br>• Совместная таблица (Vue 3 + Pinia) | Чаты, live-дашборды, совместное редактирование, нотификации |
 
-### Misc
+### Разное
 
-| Repo | Language | Description |
-|------|----------|-------------|
-| [miscellaneous-playground](./miscellaneous-playground) | JavaScript | 10 standalone examples: undefined shadowing, short-circuit side effects, autoboxing/prototype pollution, comma operator, async stack trace loss, Error non-enumerable serialization, async race conditions |
-| [algorithms-playground](./algorithms-playground) | JavaScript / TypeScript | Sorting (bubble, insert, merge, quick), search (binary, BFS, Dijkstra), data structures (binary trees, hash table, linked list), puzzles (Fibonacci memoization, palindrome, Caesar cipher, sieve of Eratosthenes) |
-| [automapper-demo](./automapper-demo) | TypeScript | @automapper library demo: classic (decorator-based with @automapper/classes) and auto (plain objects with @automapper/pojos), User entity-to-DTO mapping |
+| Репозиторий | Язык | Описание | Варианты использования |
+|-------------|------|----------|------------------------|
+| [miscellaneous-playground](./miscellaneous-playground) | JavaScript | • 7 отдельных примеров: shadowing undefined, short-circuit side effects, autoboxing/prototype pollution<br>• Оператор запятая, потеря async stack trace, неэнумерабельная сериализация Error<br>• Async race conditions | Код-ревью, аудит безопасности (prototype pollution), отладка async |
+| [algorithms-playground](./algorithms-playground) | JavaScript / TypeScript | • Сортировки (пузырьковая, вставками, слиянием, быстрая, выбором)<br>• Поиск (бинарный, BFS, Dijkstra), структуры данных (бинарные деревья, хэш-таблица, связный список)<br>• Задачи: мемоизация Фибоначчи, палиндром, шифр Цезаря, решето Эратосфена, FizzBuzz, reverse words, two sum, harmless ransom note, mean/median/mode, max profit, island perimeter | Coding-интервью, оптимизация производительности, кастомные структуры данных |
+| [automapper-demo](./automapper-demo) | TypeScript | • Демо библиотеки @automapper: классический подход (на декораторах через @automapper/classes) и автоматический (plain objects через @automapper/pojos)<br>• Маппинг User entity в DTO | DTO-маппинг в layered-архитектуре, трансформация API-ответов |
 
-## Setup
+## Установка
 
 ```bash
-# Clone with all submodules
+# Клонировать со всеми подмодулями
 git clone --recurse-submodules git@github.com:Skippia/meta-playground.git
 
-# Or init submodules after clone
+# Или инициализировать подмодули после клонирования
 git submodule update --init --recursive
 ```
