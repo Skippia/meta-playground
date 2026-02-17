@@ -2,6 +2,8 @@
 
 Aggregated playground: all my learning repos as git submodules — algorithms, Node.js, TypeScript, DevOps, databases, patterns & more.
 
+> [Версия на русском](./README.ru.md)
+
 ## Repos
 
 ### Core Node.js
