@@ -1,0 +1,22 @@
+{
+  "name": "meta-playground",
+  "version": "1.0.0",
+  "description": "Aggregated playground: all my learning repos as git submodules — algorithms, Node.js, TypeScript, DevOps, databases, patterns & more",
+  "private": true,
+  "keywords": [
+    "playground",
+    "nodejs",
+    "typescript",
+    "algorithms",
+    "devops",
+    "patterns",
+    "databases",
+    "learning"
+  ],
+  "author": "Skippia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skippia/meta-playground.git"
+  }
+}

@@ -1,0 +1,63 @@
+[submodule "algorithms-playground"]
+	path = algorithms-playground
+	url = git@github.com:Skippia/algorithms-playground.git
+[submodule "asynchronous-nodejs-playground"]
+	path = asynchronous-nodejs-playground
+	url = git@github.com:Skippia/Asynchronous_travel_around_Node.js.git
+[submodule "automapper-demo"]
+	path = automapper-demo
+	url = git@github.com:Skippia/automapper-demo.git
+[submodule "devops-playground"]
+	path = devops-playground
+	url = git@github.com:Skippia/devops-playground.git
+[submodule "event-sourcing-playground"]
+	path = event-sourcing-playground
+	url = git@github.com:Skippia/event-sourcing-playground.git
+[submodule "fp-playground"]
+	path = fp-playground
+	url = git@github.com:Skippia/fp-playground.git
+[submodule "gRPC-playground"]
+	path = gRPC-playground
+	url = git@github.com:Skippia/gRPC-playground.git
+[submodule "legacy-decorators-playground"]
+	path = legacy-decorators-playground
+	url = git@github.com:Skippia/legacy-decorators-playground.git
+[submodule "miscellaneous-playground"]
+	path = miscellaneous-playground
+	url = git@github.com:Skippia/miscellaneous-playground.git
+[submodule "nodejs-playground"]
+	path = nodejs-playground
+	url = git@github.com:Skippia/nodejs-playground.git
+[submodule "parallel-programming-playground"]
+	path = parallel-programming-playground
+	url = git@github.com:Skippia/parallel-programming-playground.git
+[submodule "patterns-playground"]
+	path = patterns-playground
+	url = git@github.com:Skippia/patterns-playground.git
+[submodule "postgres-playground"]
+	path = postgres-playground
+	url = git@github.com:Skippia/postgres-playground.git
+[submodule "rabbitmq-playground"]
+	path = rabbitmq-playground
+	url = git@github.com:Skippia/rabbitmq-playground.git
+[submodule "realtime-playground"]
+	path = realtime-playground
+	url = git@github.com:Skippia/socket-playground.git
+[submodule "redis-playground"]
+	path = redis-playground
+	url = git@github.com:Skippia/redis-playground.git
+[submodule "SSR-cache-demo"]
+	path = SSR-cache-demo
+	url = git@github.com:Skippia/SSR-cache-demo.git
+[submodule "streams-playground"]
+	path = streams-playground
+	url = git@github.com:Skippia/streams-playground.git
+[submodule "typescript-playground"]
+	path = typescript-playground
+	url = git@github.com:Skippia/typescript-playground.git
+[submodule "V8-sandboxes-playground"]
+	path = V8-sandboxes-playground
+	url = git@github.com:Skippia/V8-sandboxes-playground.git
+[submodule "vertical-slice-architecture-playground"]
+	path = vertical-slice-architecture-playground
+	url = git@github.com:Skippia/vertical-slice-architecture-playground.git
