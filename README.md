@@ -1,73 +1,73 @@
 # meta-playground
 
-Агрегированный playground: все мои учебные репозитории как git-подмодули — алгоритмы, Node.js, TypeScript, DevOps, базы данных, паттерны и многое другое.
+Aggregated playground: all my learning repos as git submodules — algorithms, Node.js, TypeScript, DevOps, databases, patterns & more.
 
-> [English version](./README.en.md)
+> [Версия на русском](./README.md)
 
-## Репозитории
+## Repos
 
-### Ядро Node.js
+### Core Node.js
 
-| # | Репозиторий | Язык | Описание | Варианты использования |
-|---|-------------|------|----------|------------------------|
-| 1 | [nodejs-playground](https://github.com/Skippia/nodejs-playground) | JavaScript | • Ключевые модули Node.js — path, os, process, url, events, stream (pipe + backpressure), fs (кастомный promisify)<br>• cluster (форкинг на несколько ядер)<br>• HTTP-сервер | CLI-утилиты, процесс-менеджмент, HTTP-серверы без фреймворков |
-| 2 | [streams-playground](https://github.com/Skippia/streams-playground) | TypeScript | • 19 модулей: все типы стримов, pipe vs pipeline, backpressure, async-генераторы, AbortController, Web Streams API<br>• ETL CSV-to-NDJSON, TCP-чат, пагинация SQLite<br>• Параллелизм через child_process/worker_threads<br>• Стриминговое интернет-радио с SoX<br>• Observer/Pub-Sub EventEmitter | ETL-пайплайны, обработка больших файлов, медиа-стриминг |
-| 3 | [asynchronous-nodejs-playground](https://github.com/Skippia/asynchronous-nodejs-playground) | TypeScript | • Внутреннее устройство event loop, libuv threadpool, порядок выполнения промисов<br>• Worker threads/workerpools, кластеризация + PM2, модель акторов<br>• Sequential vs concurrent vs parallel выполнение<br>• Async-отладчик, baseline-бенчмарки производительности | Оптимизация throughput, диагностика блокировки event loop, масштабирование PM2/cluster |
-| 4 | [parallel-programming-playground](https://github.com/Skippia/parallel-programming-playground) | TypeScript | • Mutex (4 реализации + deadlock/livelock), Semaphore (бинарный/счётный + atomics), бенчмарки Atomics<br>• WorkerPool, async-примитивы (async-mutex, async-semaphore, barrier, bounded-channel, rate-limiter, rw-lock)<br>• Распределённая блокировка Redis, lock-free CAS-счётчик | CPU-интенсивные задачи (изображения/видео), rate limiting, пулы соединений, распределённые блокировки |
-| 5 | [V8-sandboxes-playground](https://github.com/Skippia/V8-sandboxes-playground) | JavaScript | • Изолированные песочницы через модуль `vm` Node.js<br>• Двойная реализация: safeRequire (CJS) и safeImport (ESM)<br>• Загрузка модулей по белому списку, проксированные глобальные объекты, песочница для доступа к fs | Плагин-системы, исполнение пользовательских скриптов, мультитенантная изоляция |
+| # | Repo | Language | Description | Use cases |
+|---|------|----------|-------------|-----------|
+| 1 | [nodejs-playground](https://github.com/Skippia/nodejs-playground) | JavaScript | • Node.js core modules — path, os, process, url, events, stream (pipe + backpressure), fs (custom promisify)<br>• cluster (multi-core forking)<br>• HTTP server | CLI tools, process management, framework-free HTTP servers |
+| 2 | [streams-playground](https://github.com/Skippia/streams-playground) | TypeScript | • 19 modules: all stream types, pipe vs pipeline, backpressure, async generators, AbortController, Web Streams API<br>• CSV-to-NDJSON ETL, TCP chat, SQLite pagination<br>• child_process/worker_threads parallelism<br>• Streaming internet radio with SoX<br>• Observer/Pub-Sub EventEmitter | ETL pipelines, large file processing, media streaming |
+| 3 | [asynchronous-nodejs-playground](https://github.com/Skippia/asynchronous-nodejs-playground) | TypeScript | • Event loop internals, libuv threadpool, promise ordering<br>• Worker threads/workerpools, clustering + PM2, actors model<br>• Sequential vs concurrent vs parallel execution<br>• Async debugger, baseline perf benchmarks | Throughput optimization, event loop blocking diagnostics, PM2/cluster scaling |
+| 4 | [parallel-programming-playground](https://github.com/Skippia/parallel-programming-playground) | TypeScript | • Mutex (4 impls + deadlock/livelock), Semaphore (binary/counting + atomics), Atomics benchmarks<br>• WorkerPool, async primitives (async-mutex, async-semaphore, barrier, bounded-channel, rate-limiter, rw-lock)<br>• Distributed Redis lock, lock-free CAS counter | CPU-intensive tasks (images/video), rate limiting, connection pools, distributed locks |
+| 5 | [V8-sandboxes-playground](https://github.com/Skippia/V8-sandboxes-playground) | JavaScript | • Isolated sandboxes via Node.js `vm` module<br>• Dual implementation: safeRequire (CJS) and safeImport (ESM)<br>• Whitelisted module loading, proxied globals, sandboxed fs access | Plugin systems, user script execution, multi-tenant isolation |
 
-### TypeScript и ФП
+### TypeScript & FP
 
-| # | Репозиторий | Язык | Описание | Варианты использования |
-|---|-------------|------|----------|------------------------|
-| 6 | [typescript-playground](https://github.com/Skippia/typescript-playground) | TypeScript | • 42 задачи на уровне типов (все utility-типы с нуля), арифметика на уровне типов, UnionToIntersection<br>• Рекурсивные типы, template literals, ковариантность/контравариантность<br>• Дистрибутивные условные типы, граничные случаи сужения типов<br>• misc-types (DeepReadonly, Invert, NoInfer) + 7 файлов с edge-case поведением | Типобезопасные библиотеки, проектирование SDK, сложные generic-API |
-| 7 | [fp-playground](https://github.com/Skippia/fp-playground) | TypeScript | • fp-ts/ramda/monocle-ts — HOF, каррирование, композиция, tagless final, type-driven разработка<br>• Теория категорий (функторы, аппликативы, монады, Kleisli)<br>• Все монадические типы (Option, Either, Task, Reader, State, Writer)<br>• Алгебраические структуры, оптики, Game of Life | Пайплайны обработки ошибок, трансформации данных, DI через Reader, управление side-effects |
-| 8 | [legacy-decorators-playground](https://github.com/Skippia/legacy-decorators-playground) | TypeScript | • Legacy `experimentalDecorators` + reflect-metadata<br>• Декораторы методов/классов, фабрики, порядок выполнения, двойная обёртка<br>• Эмиссия design:type/paramtypes/returntype | NestJS/Angular DI, ORM-декораторы, валидация, AOP |
+| # | Repo | Language | Description | Use cases |
+|---|------|----------|-------------|-----------|
+| 6 | [typescript-playground](https://github.com/Skippia/typescript-playground) | TypeScript | • 42 type-level challenges (all utility types from scratch), type-level arithmetic, UnionToIntersection<br>• Recursive types, template literals, covariance/contravariance<br>• Distributive conditionals, type narrowing edge cases<br>• misc-types (DeepReadonly, Invert, NoInfer) + 7 edge-case behavior files | Type-safe libraries, SDK design, complex generic APIs |
+| 7 | [fp-playground](https://github.com/Skippia/fp-playground) | TypeScript | • fp-ts/ramda/monocle-ts — HOF, currying, composition, tagless final, type-driven dev<br>• Category theory (functors, applicatives, monads, Kleisli)<br>• All monadic types (Option, Either, Task, Reader, State, Writer)<br>• Algebraic structures, optics, Game of Life | Error-handling pipelines, data transformations, DI via Reader, side-effect management |
+| 8 | [legacy-decorators-playground](https://github.com/Skippia/legacy-decorators-playground) | TypeScript | • Legacy `experimentalDecorators` + reflect-metadata<br>• Method/class decorators, factories, execution order, double-wrapping<br>• design:type/paramtypes/returntype emission | NestJS/Angular DI, ORM decorators, validation, AOP |
 
-### Базы данных и очереди сообщений
+### Databases & Messaging
 
-| # | Репозиторий | Язык | Описание | Варианты использования |
-|---|-------------|------|----------|------------------------|
-| 9 | [postgres-playground](https://github.com/Skippia/postgres-playground) | TypeScript / SQL | • Ранжирование, CTE, рекурсивные CTE, функции/процедуры, оконные функции, JSONB<br>• Материализованные представления, триггеры, pg-cron, полнотекстовый/нечёткий поиск, доменные типы<br>• Индексы (исключающие, составные, частичные)<br>• Репликация, партиционирование, PgBouncer, бэкап/восстановление, SSL, миграции<br>• Рекомендательные блокировки, уровни изоляции<br>• Коррелированные подзапросы, LISTEN/NOTIFY pub-sub, pg_ivm инкрементальные материализованные представления | Сложная аналитика, полнотекстовый поиск, шардинг/репликация, планировщик задач |
-| 10 | [redis-playground](https://github.com/Skippia/redis-playground) | TypeScript | • Монорепо из 3 проектов: NestJS + ioredis (сессионная авторизация, Redlock, WATCH/транзакции, оптимистичная блокировка, ELK)<br>• SvelteKit аукцион (RediSearch, HyperLogLog, Lua-скрипты, Keygrip cookies)<br>• Vue 3 поисковый UI с MSW | Сессии, распределённые блокировки, real-time поиск, кэширование, аукционы |
-| 11 | [rabbitmq-playground](https://github.com/Skippia/rabbitmq-playground) | TypeScript | • Topic exchange, publisher confirms, RPC, alternate/dead letter exchanges, consistent hash<br>• 3 стратегии повторов (DLX+TTL, экспоненциальный backoff, плагин delayed_message_exchange)<br>• 3 стратегии publisher confirms (синхронная/пакетная/асинхронная), обработка poison messages<br>• NestJS микросервисы + MongoDB, кластер из 3 нод с HAProxy + Shovels, бенчмарки clinic.js | Микросервисная коммуникация, retry/DLQ стратегии, event-driven архитектура |
+| # | Repo | Language | Description | Use cases |
+|---|------|----------|-------------|-----------|
+| 9 | [postgres-playground](https://github.com/Skippia/postgres-playground) | TypeScript / SQL | • Ranking, CTEs, recursive CTEs, functions/procedures, window functions, JSONB<br>• Materialized views, triggers, pg-cron, full-text/fuzzy search, domain types<br>• Indexes (exclusion, composite, partial)<br>• Replication, partitioning, PgBouncer, backup/restore, SSL, migrations<br>• Advisory locks, isolation levels<br>• Correlated subqueries, LISTEN/NOTIFY pub-sub, pg_ivm incremental materialized views | Complex analytics, full-text search, sharding/replication, job scheduling |
+| 10 | [redis-playground](https://github.com/Skippia/redis-playground) | TypeScript | • 3-project monorepo: NestJS + ioredis (session auth, Redlock, WATCH/transaction, optimistic locking, ELK)<br>• SvelteKit auction (RediSearch, HyperLogLog, Lua scripts, Keygrip cookies)<br>• Vue 3 search UI with MSW | Sessions, distributed locks, real-time search, caching, auctions |
+| 11 | [rabbitmq-playground](https://github.com/Skippia/rabbitmq-playground) | TypeScript | • Topic exchange, publisher confirms, RPC, alternate/dead letter exchanges, consistent hash<br>• 3 retry strategies (DLX+TTL, exponential backoff, delayed_message_exchange plugin)<br>• 3 publisher confirm strategies (sync/batch/async), poison message handling<br>• NestJS microservices + MongoDB, 3-node cluster with HAProxy + Shovels, clinic.js benchmarks | Microservice communication, retry/DLQ strategies, event-driven architecture |
 
-### Паттерны и архитектура
+### Patterns & Architecture
 
-| # | Репозиторий | Язык | Описание | Варианты использования |
-|---|-------------|------|----------|------------------------|
-| 12 | [patterns-playground](https://github.com/Skippia/patterns-playground) | TypeScript | • GoF-паттерны (8 поведенческих, 1 порождающий, 3 структурных)<br>• DDD Specification, паттерн Factorify<br>• Декораторы, мемоизация, миксины, пул объектов, thenable, Revealing Constructor | Чистая архитектура, плагин-системы, стейт-машины |
-| 13 | [event-sourcing-playground](https://github.com/Skippia/event-sourcing-playground) | TypeScript | • 5 последовательных примеров (домен морских перевозок): базовый apply/replay, реверсия событий (Memento), внешнее кэширование (Decorator/QueryLog)<br>• Ретроактивная замена/отклонение с перемоткой, буферизация сайд-эффектов с дифференциальной отменой/переотправкой<br>• Бонус: event-based CRUD корзины с MongoDB + Express | Аудит-трейлы, undo/redo, темпоральные запросы, финансы/логистика |
-| 14 | [vertical-slice-architecture-playground](https://github.com/Skippia/vertical-slice-architecture-playground) | TypeScript | • Две реализации NestJS + CQRS: базовая (Drizzle + SQLite) и продакшн (монорепо из нескольких приложений, PostgreSQL, RabbitMQ)<br>• Winston логгер + trace ID, Joi валидация, Docker Compose<br>• Обнаружение циклических зависимостей через madge<br>• 30 E2E-тестов на каждую версию | Feature-based организация кода, CQRS в NestJS, монорепо |
+| # | Repo | Language | Description | Use cases |
+|---|------|----------|-------------|-----------|
+| 12 | [patterns-playground](https://github.com/Skippia/patterns-playground) | TypeScript | • GoF patterns (8 behavioral, 1 creational, 3 structural)<br>• DDD Specification, Factorify pattern<br>• Decorators, memoization, mixins, object pool, thenable, Revealing Constructor | Clean architecture, plugin systems, state machines |
+| 13 | [event-sourcing-playground](https://github.com/Skippia/event-sourcing-playground) | TypeScript | • 5 progressive examples (maritime shipping domain): basic apply/replay, event reversal (Memento), external caching (Decorator/QueryLog)<br>• Retroactive replacement/rejection with rewind, side-effect buffering with differential cancel/re-notify<br>• Bonus: event-based CRUD cart with MongoDB + Express | Audit trails, undo/redo, temporal queries, finance/logistics |
+| 14 | [vertical-slice-architecture-playground](https://github.com/Skippia/vertical-slice-architecture-playground) | TypeScript | • Two NestJS + CQRS implementations: basic (Drizzle + SQLite) and production (multi-app monorepo, PostgreSQL, RabbitMQ)<br>• Winston logger + trace ID, Joi validation, Docker Compose<br>• Circular dependency detection via madge<br>• 30 E2E tests per version | Feature-based code organization, CQRS in NestJS, monorepo |
 
-### DevOps и инфраструктура
+### DevOps & Infra
 
-| # | Репозиторий | Язык | Описание | Варианты использования |
-|---|-------------|------|----------|------------------------|
-| 15 | [devops-playground](https://github.com/Skippia/devops-playground) | YAML / Dockerfile | • Docker Compose мультистек (NestJS+RabbitMQ, Laravel+PHP-FPM, Vue/React+Express+MySQL/MongoDB)<br>• Swiggy микросервисы (Nginx + PostgreSQL), pgAdmin<br>• K8s-манифесты (локальные + AWS EKS, EFS, Secrets, ConfigMaps)<br>• Пайплайны GitHub Actions, конфиги Nginx | CI/CD пайплайны, контейнеризация, K8s-оркестрация, reverse proxy |
-| 16 | [SSR-cache-demo](https://github.com/Skippia/SSR-cache-demo) | TypeScript | • 3 стратегии кэширования SSR в Nuxt 3: routeRules SWR (in-memory TTL), ETag + stale-while-revalidate (браузерное, MD5, 304)<br>• Серверная middleware + внешнее хранилище (перехват рендера на основе TTL) | Оптимизация SSR-производительности, CDN-кэширование, SEO |
+| # | Repo | Language | Description | Use cases |
+|---|------|----------|-------------|-----------|
+| 15 | [devops-playground](https://github.com/Skippia/devops-playground) | YAML / Dockerfile | • Docker Compose multi-stack (NestJS+RabbitMQ, Laravel+PHP-FPM, Vue/React+Express+MySQL/MongoDB)<br>• Swiggy microservices (Nginx + PostgreSQL), pgAdmin<br>• K8s manifests (local + AWS EKS, EFS, Secrets, ConfigMaps)<br>• GitHub Actions pipelines, Nginx configs | CI/CD pipelines, containerization, K8s orchestration, reverse proxy |
+| 16 | [SSR-cache-demo](https://github.com/Skippia/SSR-cache-demo) | TypeScript | • 3 Nuxt 3 SSR caching strategies: routeRules SWR (in-memory TTL), ETag + stale-while-revalidate (browser-side, MD5, 304)<br>• Server middleware + external storage (TTL-based render interception) | SSR performance optimization, CDN caching, SEO |
 
-### Протоколы и коммуникация
+### Protocols & Communication
 
-| # | Репозиторий | Язык | Описание | Варианты использования |
-|---|-------------|------|----------|------------------------|
-| 17 | [gRPC-playground](https://github.com/Skippia/gRPC-playground) | TypeScript | • Eliza-сервис из .proto (buf + protoc-gen-ts)<br>• Серверные/клиентские интерцепторы, health checks, серверная рефлексия, обработка ошибок<br>• Типы стриминга (server/bidi), политики retry/deadline | Микросервисные API, high-performance RPC, стриминг данных |
-| 18 | [realtime-playground](https://github.com/Skippia/realtime-playground) | JavaScript / TypeScript | • 7 мини-чатов: short polling (RAF), long polling (EventEmitter), SSE, HTTP/2 streams<br>• Базовый WebSocket, WebSocket + Redis pub/sub + масштабирование через HAProxy<br>• Совместная таблица (Vue 3 + Pinia) | Чаты, live-дашборды, совместное редактирование, нотификации |
+| # | Repo | Language | Description | Use cases |
+|---|------|----------|-------------|-----------|
+| 17 | [gRPC-playground](https://github.com/Skippia/gRPC-playground) | TypeScript | • Eliza service from .proto (buf + protoc-gen-ts)<br>• Server/client interceptors, health checks, server reflection, error handling<br>• Streaming types (server/bidi), retry/deadline policies | Microservice APIs, high-performance RPC, data streaming |
+| 18 | [realtime-playground](https://github.com/Skippia/realtime-playground) | JavaScript / TypeScript | • 7 mini-chat implementations: short polling (RAF), long polling (EventEmitter), SSE, HTTP/2 streams<br>• Basic WebSocket, WebSocket + Redis pub/sub + HAProxy scaling<br>• Collaborative spreadsheet (Vue 3 + Pinia) | Chats, live dashboards, collaborative editing, notifications |
 
-### Разное
+### Misc
 
-| # | Репозиторий | Язык | Описание | Варианты использования |
-|---|-------------|------|----------|------------------------|
-| 19 | [miscellaneous-playground](https://github.com/Skippia/miscellaneous-playground) | JavaScript | • 7 отдельных примеров: shadowing undefined, short-circuit side effects, autoboxing/prototype pollution<br>• Оператор запятая, потеря async stack trace, неэнумерабельная сериализация Error<br>• Async race conditions | Код-ревью, аудит безопасности (prototype pollution), отладка async |
-| 20 | [algorithms-playground](https://github.com/Skippia/algorithms-playground) | JavaScript / TypeScript | • Сортировки (пузырьковая, вставками, слиянием, быстрая, выбором)<br>• Поиск (бинарный, BFS, Dijkstra), структуры данных (бинарные деревья, хэш-таблица, связный список)<br>• Задачи: мемоизация Фибоначчи, палиндром, шифр Цезаря, решето Эратосфена, FizzBuzz, reverse words, two sum, harmless ransom note, mean/median/mode, max profit, island perimeter | Coding-интервью, оптимизация производительности, кастомные структуры данных |
-| 21 | [automapper-demo](https://github.com/Skippia/automapper-demo) | TypeScript | • Демо библиотеки @automapper: классический подход (на декораторах через @automapper/classes) и автоматический (plain objects через @automapper/pojos)<br>• Маппинг User entity в DTO | DTO-маппинг в layered-архитектуре, трансформация API-ответов |
+| # | Repo | Language | Description | Use cases |
+|---|------|----------|-------------|-----------|
+| 19 | [miscellaneous-playground](https://github.com/Skippia/miscellaneous-playground) | JavaScript | • 7 standalone examples: undefined shadowing, short-circuit side effects, autoboxing/prototype pollution<br>• Comma operator, async stack trace loss, Error non-enumerable serialization<br>• Async race conditions | Code review, security audits (prototype pollution), async debugging |
+| 20 | [algorithms-playground](https://github.com/Skippia/algorithms-playground) | JavaScript / TypeScript | • Sorting (bubble, insert, merge, quick, selection)<br>• Search (binary, BFS, Dijkstra), data structures (binary trees, hash table, linked list)<br>• Puzzles: Fibonacci memoization, palindrome, Caesar cipher, sieve of Eratosthenes, FizzBuzz, reverse words, two sum, harmless ransom note, mean/median/mode, max profit, island perimeter | Coding interviews, performance optimization, custom data structures |
+| 21 | [automapper-demo](https://github.com/Skippia/automapper-demo) | TypeScript | • @automapper library demo: classic (decorator-based with @automapper/classes) and auto (plain objects with @automapper/pojos)<br>• User entity-to-DTO mapping | DTO mapping in layered architecture, API response transformation |
 
-## Установка
+## Setup
 
 ```bash
-# Клонировать со всеми подмодулями
+# Clone with all submodules
 git clone --recurse-submodules git@github.com:Skippia/meta-playground.git
 
-# Или инициализировать подмодули после клонирования
+# Or init submodules after clone
 git submodule update --init --recursive
 ```
