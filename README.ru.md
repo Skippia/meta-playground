@@ -2,7 +2,62 @@
 
 Агрегированный playground: все мои учебные репозитории как git-подмодули — алгоритмы, Node.js, TypeScript, DevOps, базы данных, паттерны и многое другое.
 
-> [English version](./README.en.md)
+```mermaid
+flowchart TD
+    Meta(meta-playground) --> Core[Ядро Node.js]
+    Meta --> TS[TypeScript и ФП]
+    Meta --> DB[Базы данных и очереди]
+    Meta --> Pat[Паттерны и архитектура]
+    Meta --> Dev[DevOps и инфраструктура]
+    Meta --> Prot[Протоколы и коммуникации]
+    Meta --> Misc[Разное]
+
+    subgraph Core [Ядро Node.js]
+        node1[nodejs-playground]
+        node2[streams-playground]
+        node3[asynchronous-nodejs-playground]
+        node4[parallel-programming-playground]
+        node5[V8-sandboxes-playground]
+    end
+
+    subgraph TS [TypeScript и ФП]
+        ts1[typescript-playground]
+        ts2[fp-playground]
+        ts3[legacy-decorators-playground]
+    end
+
+    subgraph DB [Базы данных и очереди]
+        db1[postgres-playground]
+        db2[redis-playground]
+        db3[rabbitmq-playground]
+    end
+
+    subgraph Pat [Паттерны и архитектура]
+        pat1[patterns-playground]
+        pat2[event-sourcing-playground]
+        pat3[vertical-slice-architecture-playground]
+    end
+
+    subgraph Dev [DevOps и инфраструктура]
+        dev1[devops-playground]
+        dev2[SSR-cache-demo]
+    end
+
+    subgraph Prot [Протоколы и коммуникации]
+        prot1[gRPC-playground]
+        prot2[realtime-playground]
+    end
+
+    subgraph Misc [Разное]
+        misc1[miscellaneous-playground]
+        misc2[algorithms-playground]
+        misc3[automapper-demo]
+    end
+
+    style Meta fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+```
+
+> [English version](./README.md)
 
 ## Репозитории
 

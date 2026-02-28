@@ -2,7 +2,62 @@
 
 Aggregated playground: all my learning repos as git submodules — algorithms, Node.js, TypeScript, DevOps, databases, patterns & more.
 
-> [Версия на русском](./README.md)
+```mermaid
+flowchart TD
+    Meta(meta-playground) --> Core[Core Node.js]
+    Meta --> TS[TypeScript & FP]
+    Meta --> DB[Databases & Messaging]
+    Meta --> Pat[Patterns & Architecture]
+    Meta --> Dev[DevOps & Infra]
+    Meta --> Prot[Protocols & Communication]
+    Meta --> Misc[Misc]
+
+    subgraph Core [Core Node.js]
+        node1[nodejs-playground]
+        node2[streams-playground]
+        node3[asynchronous-nodejs-playground]
+        node4[parallel-programming-playground]
+        node5[V8-sandboxes-playground]
+    end
+
+    subgraph TS [TypeScript & FP]
+        ts1[typescript-playground]
+        ts2[fp-playground]
+        ts3[legacy-decorators-playground]
+    end
+
+    subgraph DB [Databases & Messaging]
+        db1[postgres-playground]
+        db2[redis-playground]
+        db3[rabbitmq-playground]
+    end
+
+    subgraph Pat [Patterns & Architecture]
+        pat1[patterns-playground]
+        pat2[event-sourcing-playground]
+        pat3[vertical-slice-architecture-playground]
+    end
+
+    subgraph Dev [DevOps & Infra]
+        dev1[devops-playground]
+        dev2[SSR-cache-demo]
+    end
+
+    subgraph Prot [Protocols & Communication]
+        prot1[gRPC-playground]
+        prot2[realtime-playground]
+    end
+
+    subgraph Misc [Misc]
+        misc1[miscellaneous-playground]
+        misc2[algorithms-playground]
+        misc3[automapper-demo]
+    end
+
+    style Meta fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+```
+
+> [Версия на русском](./README.ru.md)
 
 ## Repos
 
